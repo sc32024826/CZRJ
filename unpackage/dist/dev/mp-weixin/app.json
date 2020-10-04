@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/my/my",
+    "pages/list/list"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "HOME",
+        "iconPath": "static/icon/home.png",
+        "selectedIconPath": "static/icon/home-light.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "LSIT",
+        "iconPath": "static/icon/list.png",
+        "selectedIconPath": "static/icon/list-light.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/icon/me.png",
+        "selectedIconPath": "static/icon/me-light.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
