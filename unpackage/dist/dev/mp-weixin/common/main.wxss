@@ -14,7 +14,14 @@
 
 
 /*每个页面公共css */
-.row{
+.icon {
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+.row {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -23,7 +30,7 @@
 	-webkit-flex-direction: row;
 	        flex-direction: row;
 }
-.column{
+.column {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -31,5 +38,23 @@
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: column;
 	        flex-direction: column;
+}
+.jc-b{
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 2113488 */
+  src: url('//at.alicdn.com/t/font_2113488_9kv9f6gwqer.eot');
+  src: url('//at.alicdn.com/t/font_2113488_9kv9f6gwqer.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2113488_9kv9f6gwqer.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2113488_9kv9f6gwqer.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2113488_9kv9f6gwqer.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2113488_9kv9f6gwqer.svg#iconfont') format('svg');
+}
+page{
+	width: 100%;
+	height: 100%;
 }
 
