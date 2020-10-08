@@ -1,7 +1,7 @@
 <template>
 	<view class="content column">
 		<!-- #ifdef MP-WEIXIN -->
-		<image :src="img" class="avator"></image>
+		<image :src="img" class="avatar"></image>
 		<view class="nickName">{{ name }}</view>
 		<button class="sys_btn" open-type="getUserInfo" lang="zh_CN" @getuserinfo="appLoginWx">登录授权</button>
 		<!-- #endif -->
@@ -10,7 +10,9 @@
 			<text class="title">LOGIN</text>
 			<view><input type="text" placeholder="用户名" v-model="username" /></view>
 			<view><input type="password" placeholder="密码" v-model="password" /></view>
-			<view><button type="default" class="submit" @click="submit">登录</button></view>
+			<view>
+				<button type="default" class="submit" @click="submit">{{ btnName }}</button>
+			</view>
 			<text class="forget" @click="forgetPass">忘记密码?</text>
 			<view class="row third-login">
 				<svg class="icon" aria-hidden="true" @click="loginByQQ"><use xlink:href="#icon-QQ"></use></svg>
@@ -29,7 +31,8 @@ export default {
 			img: '/static/default.jpeg',
 			name: '',
 			username: '',
-			password: ''
+			password: '',
+			btnName: '登录'
 		}
 	},
 	methods: {
@@ -54,15 +57,22 @@ export default {
 										_this.name = data.nickName
 										_this.img = data.avatarUrl
 
-										_this.$store.dispatch('setUser', data)
+										_this.$store.dispatch('setUser', {
+											avatar: data.avatarUrl,
+											nickName: data.nickName
+										})
+										uni.setStorage({
+											key: 'user',
+											data: data
+										})
 										// console.log(_this.$store);
 										uniCloud.callFunction({
 											name: 'login',
 											data: {
 												code: re.code,
-												user: data 
+												user: data
 											},
-											success(ponose) { 
+											success(ponose) {
 												//成功之后跳转页面
 												// console.log('跳转页面')
 												uni.switchTab({
@@ -102,10 +112,11 @@ export default {
 		loginByWx() {},
 		loginByGit() {},
 		submit() {
+			this.btnName = '请稍等...'
 			// #ifdef H5
 			let _this = this
-			console.log('用户名: ', this.username)
-			console.log('密码: ', this.password)
+			// console.log('用户名: ', this.username)
+			// console.log('密码: ', this.password)
 			uniCloud.callFunction({
 				name: 'login_h5',
 				data: {
@@ -116,22 +127,29 @@ export default {
 					console.log('success: ', res)
 					if (res.result.success === false) {
 						uni.showModal({
-							content:res.result.msg,
-							showCancel:false
+							content: res.result.msg,
+							showCancel: false
 						})
-					}else{
+						_this.btnName = '登录'
+					} else {
 						let user = res.result.response.data
 						let data = {
-							user:user[0]
+							avatar: user[0].avatar || '',
+							nickName: user[0].nickName || ''
 						}
 						_this.$store.dispatch('setUser', data)
+						uni.setStorage({
+							key: 'user',
+							data: data
+						})
 						uni.switchTab({
-							url:'../home/home'
+							url: '../home/home'
 						})
 					}
 				},
 				fail(err) {
 					console.log('failed: ', err)
+					_this.btnName = '登录'
 				}
 			})
 			// #endif
@@ -149,7 +167,7 @@ export default {
 	background-image: linear-gradient(to right, #17f6f9, #55aaff);
 	width: 100%;
 	height: 100%;
-	.avator {
+	.avatar {
 		height: 200rpx;
 		width: 200rpx;
 		margin-top: 200rpx;

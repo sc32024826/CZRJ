@@ -37,7 +37,8 @@
 .content .head .avator.data-v-0be17cc6 {
   width: 180rpx;
   height: 180rpx;
-  border-radius: 50rpx;
+  -webkit-border-radius: 50rpx;
+          border-radius: 50rpx;
 }
 .content .head .name.data-v-0be17cc6 {
   -webkit-box-flex: 1;
