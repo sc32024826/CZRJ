@@ -1,0 +1,23 @@
+{
+  "name": "Sc-Demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sc32024826/CZRJ.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sc32024826/CZRJ/issues"
+  },
+  "homepage": "https://github.com/sc32024826/CZRJ#readme",
+  "devDependencies": {
+    "@dcloudio/uni-ui": "^1.2.5"
+  }
+}

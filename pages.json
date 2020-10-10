@@ -11,7 +11,11 @@
 		}, {
 			"path": "pages/home/home",
 			"style": {
-				"navigationBarTitleText": "主页"
+				"navigationBarTitleText": "主页",
+				"disableScroll": true,
+				"app-plus": {
+					"bounce": "none"
+				}
 			}
 		}, {
 			"path": "pages/my/my",
@@ -26,7 +30,11 @@
 				"navigationBarTitleText": "列表"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/music/music",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "",
@@ -42,6 +50,12 @@
 				"selectedIconPath": "static/icon/home-light.png"
 			},
 			{
+				"pagePath": "pages/music/music",
+				"text": "Music",
+				"iconPath": "static/icon/Music.png",
+				"selectedIconPath": "static/icon/Music-light.png"
+			},
+			{
 				"pagePath": "pages/list/list",
 				"text": "LSIT",
 				"iconPath": "static/icon/list.png",
@@ -53,6 +67,18 @@
 				"iconPath": "static/icon/me.png",
 				"selectedIconPath": "static/icon/me-light.png"
 			}
-		]
+		],
+		"midButton":{
+			"width":"63px", 
+			"height":"63px",
+			"iconPath":"static/icon/plus.png",
+			"iconWidth":"55px"
+		}
+	},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+		}
 	}
 }

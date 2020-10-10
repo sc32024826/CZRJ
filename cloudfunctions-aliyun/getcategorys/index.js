@@ -3,8 +3,9 @@ const db = uniCloud.database()
 exports.main = async (event, context) => {
 	const collection = db.collection('node')
 	let res = await collection.aggregate().group({
-		_id: '$category'
-	}).end()
+			_id: '$category'
+		})
+		.end()
 
 	//返回数据给客户端
 	return {
